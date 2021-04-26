@@ -14,10 +14,12 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <stdint.h>
+#include <inttypes.h>
 #include "thpool.h"
 
 void task(void *arg){
-	printf("Thread #%u working on %d\n", (int)pthread_self(), (int) arg);
+	printf("Thread #%" PRIuPTR " working on %" PRIdPTR "\n",
+	       (uintptr_t)pthread_self(), (intptr_t) arg);
 }
 
 
